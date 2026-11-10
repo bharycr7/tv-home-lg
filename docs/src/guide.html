@@ -1,0 +1,180 @@
+<!doctype html><html><head><meta charset="utf-8"><title>TV Home for LG webOS — Guide</title>
+<style>
+@font-face{font-family:Outfit;src:url(Outfit.ttf);font-weight:100 900}
+@page{size:Letter;margin:16mm 16mm 18mm}
+*{box-sizing:border-box}
+body{font-family:Outfit,sans-serif;color:#1d1d22;font-size:10.8pt;line-height:1.5;margin:0}
+h1{font-size:30pt;font-weight:700;margin:0 0 4pt;letter-spacing:-.5pt}
+h2{font-size:17pt;font-weight:650;margin:16pt 0 6pt;padding-top:4pt;border-top:2px solid #e8e3dc;break-after:avoid}
+h3{font-size:12.5pt;font-weight:600;margin:14pt 0 4pt;break-after:avoid}
+p{margin:0 0 7pt}
+.cover{height:243mm;display:flex;flex-direction:column;justify-content:flex-start;break-after:page;background:#0a0a0c;color:#fff;border-radius:6px;padding:12mm}
+.cover h1{font-size:40pt;color:#fff}.cover .sub{font-size:15pt;font-weight:300;opacity:.9;margin-bottom:14pt}
+.cover .meta{font-size:10pt;opacity:.7}
+.kicker{font-size:10pt;letter-spacing:2pt;text-transform:uppercase;color:#d2492f;font-weight:600}
+.cover .kicker{color:#ff8a6a}
+ol,ul{margin:0 0 8pt;padding-left:18pt} li{margin:2pt 0}
+code,pre{font-family:Menlo,Consolas,monospace;font-size:9pt}
+code{background:#f2efeb;padding:1pt 4pt;border-radius:3pt}
+pre{background:#16161b;color:#f1f1f1;padding:9pt 11pt;border-radius:6pt;white-space:pre-wrap;break-inside:avoid;margin:4pt 0 9pt}
+img.shot{width:100%;border-radius:6pt;margin:4pt 0 2pt;box-shadow:0 2pt 8pt rgba(0,0,0,.15)}
+.cap{font-size:9pt;color:#6b6b72;margin-bottom:10pt}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8pt}
+.note{background:#fff6ec;border-left:3px solid #e89a3c;padding:7pt 10pt;border-radius:4pt;margin:6pt 0 10pt;break-inside:avoid}
+.warn{background:#fdeeee;border-left:3px solid #d2492f;padding:7pt 10pt;border-radius:4pt;margin:6pt 0 10pt;break-inside:avoid}
+table{border-collapse:collapse;width:100%;margin:4pt 0 8pt;font-size:9.4pt;break-inside:avoid}
+th,td{border-bottom:1px solid #e6e2dc;padding:5pt 6pt;text-align:left;vertical-align:top} th{background:#f6f3ef;font-weight:600}
+.step{display:flex;gap:10pt;margin:6pt 0;break-inside:avoid}.num{flex:0 0 22pt;height:22pt;border-radius:11pt;background:#d2492f;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.pb{break-before:page}
+.toc li{margin:3pt 0}
+</style></head><body>
+
+<div class="cover">
+ <img src="../screenshots/1-home.png" style="width:100%;border-radius:4px;display:block;margin-bottom:16mm">
+ <div class="kicker">Step-by-step guide</div>
+ <h1>TV Home for LG webOS</h1>
+ <div class="sub">A clean, minimal home screen for your LG TV, with a dock, My Favourites, mood cards that pick a show for you, chess and background music.</div>
+ <div class="meta">Works on webOS 5 (2020) and newer · Free and open source (MIT) · github.com/bharycr7/tv-home-lg</div>
+</div>
+
+<div class="kicker">Contents</div>
+<ol class="toc">
+<li>What you get</li><li>What you need</li><li>Turn on Developer Mode on the TV</li><li>Install TV Home (Mac, Windows, Linux)</li>
+<li>Using it with the remote</li><li>Make it yours</li><li>Keep it running</li><li>Troubleshooting</li><li>Credits and legal</li>
+</ol>
+
+<h2>1. What you get</h2>
+<img class="shot" src="../screenshots/1-home.png"><div class="cap">Home: the clock and weather, your apps in a dock, and a short line for the selected app.</div>
+<ul>
+<li><b>Top left:</b> the time and the weather (from Open-Meteo; no account needed).</li>
+<li><b>Top right:</b> Wi-Fi, an <b>Inputs</b> menu (HDMI 1–4 and Live TV) and Settings.</li>
+<li><b>The dock:</b> your streaming apps. The selected one grows and gets a soft glow, with its own line of text above it.</li>
+<li><b>My Favourites:</b> your favourite characters standing together like a poster. The selected one turns to colour, and OK opens their show.</li>
+<li><b>Don't have time to browse?:</b> mood cards you swipe like a dating app. Right spins a reel of posters that lands on one title and opens it after 3 seconds.</li>
+<li><b>More apps:</b> every other app as icon tiles. <b>Shadow Chess:</b> play the TV at four levels. <b>Background music:</b> your own song, switched on or off with Play/Pause.</li>
+</ul>
+<div class="grid">
+<div><img class="shot" src="../screenshots/2-favourites.png"><div class="cap">My Favourites (shown with placeholder figures; you add your own).</div></div>
+<div><img class="shot" src="../screenshots/4-mood-spin.png"><div class="cap">Mood cards: the reel lands on one title.</div></div>
+<div><img class="shot" src="../screenshots/5-more-apps.png"><div class="cap">More apps.</div></div>
+<div><img class="shot" src="../screenshots/6-chess.png"><div class="cap">Shadow Chess.</div></div>
+</div>
+
+<h2 class="pb">2. What you need</h2>
+<ul>
+<li>An <b>LG TV with webOS 5 or newer</b>, connected to Wi-Fi. TVs from 2020 onwards (for example the BX, CX, C1, C2, C3 and G-series) run webOS 5 or newer.</li>
+<li>A <b>computer</b> (Mac, Windows or Linux) on the <b>same Wi-Fi</b> as the TV.</li>
+<li><b>Node.js</b> (free, from nodejs.org). The installer uses it to set up LG's command-line tools.</li>
+<li>A free <b>LG developer account</b>.</li>
+<li>About <b>15 minutes</b>.</li>
+</ul>
+<div class="note"><b>Is this safe?</b> Yes. TV Home installs like any other app, using LG's own Developer Mode. Nothing on the TV is modified, and you can remove it any time like a normal app.</div>
+
+<h2>3. Turn on Developer Mode on the TV</h2>
+<div class="step"><div class="num">1</div><div><b>Create a developer account.</b> On your phone or computer, go to <b>webostv.developer.lge.com</b>, choose <b>Sign In → Create Account</b> and verify your email. Your user ID is that email.</div></div>
+<div class="step"><div class="num">2</div><div><b>Install the Developer Mode app.</b> On the TV, open the <b>LG Content Store</b> (Apps), search for <b>Developer Mode</b>, then install and open it.</div></div>
+<div class="step"><div class="num">3</div><div><b>Sign in</b> with your developer account (the email and password).</div></div>
+<div class="step"><div class="num">4</div><div>Switch <b>Dev Mode Status</b> to ON. The TV restarts.</div></div>
+<div class="step"><div class="num">5</div><div>Open the Developer Mode app again and switch <b>Key Server</b> to ON.</div></div>
+<div class="step"><div class="num">6</div><div>Note the <b>IP address</b> (for example <code>192.168.1.20</code>) and the <b>passphrase</b> (6 characters, for example <code>A1B2C3</code>) shown on screen.</div></div>
+
+<h2 class="pb">4. Install TV Home</h2>
+<h3>a. Download the project</h3>
+<p>Go to <b>github.com/bharycr7/tv-home-lg</b>, click <b>Code → Download ZIP</b> and unzip it. If you use git, run <code>git clone https://github.com/bharycr7/tv-home-lg</code> instead.</p>
+<h3>b. Run the installer</h3>
+<p>Keep the TV on with <b>Key Server ON</b>. Open a terminal in the project folder and run the command for your computer, using your own IP address and passphrase:</p>
+<p><b>Mac / Linux (Terminal)</b></p>
+<pre>cd tv-home-lg
+./scripts/install.sh 192.168.1.20 A1B2C3</pre>
+<p><b>Windows (PowerShell)</b></p>
+<pre>cd tv-home-lg
+Set-ExecutionPolicy -Scope Process Bypass
+.\scripts\install.ps1 -TvIp 192.168.1.20 -Passphrase A1B2C3</pre>
+<p>The installer sets up LG's tools (<code>@webos-tools/cli</code>), connects to the TV, builds the app and installs it. TV Home then opens on your TV, and you'll find it in your apps as <b>TV Home</b>.</p>
+<div class="note"><b>Prefer to do it by hand?</b> Download the ready-made <code>.ipk</code> from the GitHub <b>Releases</b> page, then run:<br>
+<code>npm install -g @webos-tools/cli</code><br>
+<code>ares-setup-device -a lgtv -i "host=TV-IP" -i "port=9922" -i "username=prisoner"</code><br>
+<code>ares-novacom --device lgtv --getkey</code> (type the passphrase when asked)<br>
+<code>ares-install --device lgtv com.tvhome.lg_1.0.0_all.ipk</code></div>
+
+<h3>c. Make it easy to reach</h3>
+<p>LG doesn't let any app take over the Home button, so set up one of these shortcuts:</p>
+<ul>
+<li><b>First in the app row:</b> press Home, highlight TV Home, press and hold OK (or choose <b>Edit</b>) and move it to the far left. After that, <b>Home → OK</b> opens it.</li>
+<li><b>Number key:</b> with TV Home open, press and hold a number key from <b>1 to 8</b> and assign it. Holding that key then opens TV Home from anywhere. Key 0 is reserved by LG.</li>
+</ul>
+
+<h2>5. Using it with the remote</h2>
+<table>
+<tr><th>Button</th><th>What it does</th></tr>
+<tr><td>Up / Down</td><td>Move one row: top icons, dock, My Favourites (two rows of characters), mood cards, More apps, chess.</td></tr>
+<tr><td>Left / Right</td><td>Move along a row. On a mood card, Left means nope (next mood) and Right means yes (spin).</td></tr>
+<tr><td>OK</td><td>Open the app, show or input. During the countdown, OK opens the show now.</td></tr>
+<tr><td>Back</td><td>Return to the dock. Back again leaves TV Home.</td></tr>
+<tr><td>Play / Pause</td><td>Turn the background music on or off.</td></tr>
+</table>
+
+<h2>6. Make it yours</h2>
+<p>Everything you'd want to change is in two files: <code>app/config.js</code> (apps, lines, moods, weather, music) and <code>app/data.js</code> (your favourites and the titles in each mood). After editing, run <code>./scripts/update.sh</code> on Mac or Linux, or the install script again on Windows.</p>
+<table>
+<tr><th>To change</th><th>Do this</th></tr>
+<tr><td>Wallpaper</td><td>Replace <code>app/img/wallpaper.jpg</code> with your own 1920×1080 image.</td></tr>
+<tr><td>Dock apps</td><td>Edit <code>dock</code> in <code>config.js</code>. Each entry is an app (<code>svc</code>) plus one or more lines of text. To show a logo instead of the name, add a white PNG to <code>app/img/icon/</code> and set <code>icon</code>.</td></tr>
+<tr><td>HDMI tile</td><td><code>ps5Hdmi</code> sets the HDMI port it switches to. Its <code>name</code> sets the label, for example "Fire TV" or "PS5".</td></tr>
+<tr><td>Weather</td><td><code>weather.unit</code>: <code>'celsius'</code> or <code>'fahrenheit'</code>. Add <code>lat</code> and <code>lon</code> to fix the location.</td></tr>
+<tr><td>Background music</td><td>Copy your own song to <code>app/audio/bgm.mp3</code>.</td></tr>
+<tr><td>New Tamil & Malayalam titles</td><td>Set <code>freshFeed: true</code>. A mood card then refreshes itself weekly with new titles on US streaming services.</td></tr>
+</table>
+<h3>My Favourites</h3>
+<ol>
+<li>Pick a photo of each favourite character, with the person clearly visible.</li>
+<li>Make a cut-out with the helper: <code>pip install "rembg[cpu]" pillow</code>, then <code>python3 tools/make-cutout.py photo.jpg fav1</code>. It saves <code>cast_fav1.png</code> and a black-and-white copy.</li>
+<li>In <code>data.js</code>, edit that entry in <code>shows</code>:
+ <ul><li><code>title</code>: the show's name.</li>
+ <li><code>app</code>: one of netflix, prime, disney, hulu, appletv.</li>
+ <li><code>target</code>: the show's link or ID.</li>
+ <li><code>box</code>: where the character stands, as fractions of the group frame (left, top, right, bottom).</li>
+ <li><code>lane</code>: 0 for the back row, 1 for the front row.</li>
+ <li><code>glow</code>: the colour of the light behind them.</li></ul></li>
+</ol>
+<h3>Finding a show's link</h3>
+<table>
+<tr><th>App</th><th>What to put in <code>target</code></th></tr>
+<tr><td>Netflix</td><td>The number in <code>netflix.com/title/<b>70143836</b></code></td></tr>
+<tr><td>Prime Video</td><td>The <code>amzn1.dv.gti.…</code> ID from the title's page link</td></tr>
+<tr><td>Disney+, Hulu, Apple TV</td><td>The full web link to the title</td></tr>
+</table>
+<p>A free site like <b>JustWatch</b> shows which service streams a title in your country and links to it.</p>
+<h3>Mood cards</h3>
+<p>Add a mood in <code>moods</code> (<code>config.js</code>) with an id, a name and a colour. Then add titles to <code>titles</code> in <code>data.js</code> with <code>moods: ['your-id']</code>. Put a poster at <code>app/img/poster/&lt;art&gt;.jpg</code> (300×450). Titles from apps that aren't installed on your TV are hidden automatically.</p>
+<div class="warn"><b>Use your own pictures and music for personal use only.</b> Studio posters, character photos, logos and songs belong to their owners. Don't publish them in a fork or share them publicly.</div>
+
+<h2 class="pb">7. Keep it running</h2>
+<ul>
+<li><b>Developer Mode lasts 50 hours.</b> Open the Developer Mode app every couple of days and press <b>Extend</b>. If it runs out, the TV turns Developer Mode off and removes TV Home; turn it back on and reinstall.</li>
+<li><b>Updating:</b> download the new version and run the installer again. Your settings in <code>config.js</code> and <code>data.js</code> stay as you set them.</li>
+<li><b>Removing:</b> uninstall TV Home like any app, or switch Dev Mode Status off.</li>
+</ul>
+
+<h2>8. Troubleshooting</h2>
+<table>
+<tr><th>Problem</th><th>Fix</th></tr>
+<tr><td>"Failed to get ssh private key"</td><td>Key Server is off. Turn it ON in the Developer Mode app and run the installer again.</td></tr>
+<tr><td>"All configured authentication methods failed"</td><td>The passphrase is wrong or has changed. Re-run the installer with the passphrase now shown on the TV.</td></tr>
+<tr><td>The installer can't find the TV</td><td>Check that the TV and computer are on the same Wi-Fi and that the IP address matches the Developer Mode app.</td></tr>
+<tr><td>TV Home won't open or looks frozen</td><td>Run <code>ares-launch --device lgtv --close com.tvhome.lg</code>, then open it again.</td></tr>
+<tr><td>A show opens on the app's home page</td><td>Some apps ignore links from other apps on webOS. Choose your profile and search, or check the link in <code>data.js</code>.</td></tr>
+<tr><td>A mood card is missing</td><td>None of its titles are on apps installed on this TV.</td></tr>
+<tr><td>No weather</td><td>Weather needs the internet. It updates every 30 minutes while TV Home is open.</td></tr>
+<tr><td>No music</td><td>Add <code>app/audio/bgm.mp3</code> and reinstall, then press Play/Pause once.</td></tr>
+</table>
+
+<h2>9. Credits and legal</h2>
+<ul>
+<li><b>Inspiration:</b> <i>TV Home</i>, a fan-made Android TV launcher. This webOS version was rebuilt from scratch for LG TVs.</li>
+<li><b>Licences:</b> code under MIT; the Outfit font under the SIL Open Font License.</li>
+<li><b>Data sources:</b> weather from Open-Meteo and approximate location from GeoJS. The optional title feed uses JustWatch's public website data.</li>
+<li><b>Artwork:</b> the wallpaper, placeholder figures, posters, chess pieces and icon were made for this project.</li>
+<li><b>No affiliation:</b> TV Home is not affiliated with or endorsed by LG Electronics, or by any streaming service or studio. App and title names are used only to open those apps.</li>
+</ul>
+</body></html>
